@@ -4,8 +4,11 @@
 
 
 ## Prepare Go vars
+
+```
 export GOPATH=$HOME/bin/go/
 export PATH=$GOPATH/bin:$PATH
+```
 
 ## Build
 
