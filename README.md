@@ -32,6 +32,16 @@ export MQTT_TOPIC="routers/my-wrt"
 
 `cat src/mqtt-client/bin/mqtt-clnt | gzip  | ssh <USER>@<HOST> 'zcat - > mqtt-clnt'`
 
+## Autostart on openwrt router
+
+Add below content to `/etc/rc.local` file
+```
+sleep 20s # It requres some time to up all network interfaces
+source /root/mqtt.conf
+(/root/mqtt-clnt) &
+logger "/mqtt-mips-linux Started"
+```
+
 # Used articles
 
 - http://www.giuseppeparrello.it/en/net_router_howto_add_cron_jobs.php
