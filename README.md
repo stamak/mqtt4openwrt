@@ -52,6 +52,31 @@ source /root/mqtt.conf
 logger "MQTT client started"
 ```
 
+## Home Assistant configuration
+To configure Home Assistant to receive messages from the MQTT client, add the following to your `configuration.yaml`:
+
+```yaml
+mqtt:
+  sensor:
+  - name: "MyWrt Download"
+    state_topic: "routers/my-wrt"
+    value_template: "{{ value_json.Download }}"
+    unit_of_measurement: Mbps
+  - name: "MyWrt Upload"
+    state_topic: "routers/my-wrt"
+    value_template: "{{ value_json.Upload }}"
+    unit_of_measurement: Mbps
+  - name: "MyWrt CPU"
+    state_topic: "routers/my-wrt"
+    value_template: "{{ value_json.CPUUsage }}"
+    unit_of_measurement: '%'
+  - name: "MyWrt Memory"
+    state_topic: "routers/my-wrt"
+    value_template: "{{ value_json.MemoryUsage }}"
+    unit_of_measurement: '%'
+```
+
+
 ## References
 
 For further reading and setup references:
