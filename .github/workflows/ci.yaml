@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-shared-workflow:
-    uses: stamak/gh-actions-lib-poc/.github/workflows/ci.yml@ci-wf/v0.0.1
+    uses: stamak/gh-actions-lib-poc/.github/workflows/ci.yml@ci-wf/v0.0.2
     with:
       build_target: "production"
     secrets:
