@@ -1,0 +1,14 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  call-shared-workflow:
+    uses: stamak/gh-actions-lib-poc/.github/workflows/ci.yml@main
+    with:
+      build_target: "production"
+    secrets:
+      SECRET_TOKEN: "mysecret"
